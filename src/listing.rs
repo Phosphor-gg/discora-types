@@ -7,7 +7,113 @@ pub enum ListingType {
     Bot,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
+#[serde(rename_all = "lowercase")]
+pub enum ServerTag {
+    Gaming,
+    Anime,
+    Music,
+    Study,
+    Coding,
+    Art,
+    Community,
+    Roleplay,
+    Memes,
+    Technology,
+    Social,
+    Creative,
+    Educational,
+    Support,
+}
+
+impl ServerTag {
+    pub fn as_str(&self) -> &str {
+        match self {
+            ServerTag::Gaming => "gaming",
+            ServerTag::Anime => "anime",
+            ServerTag::Music => "music",
+            ServerTag::Study => "study",
+            ServerTag::Coding => "coding",
+            ServerTag::Art => "art",
+            ServerTag::Community => "community",
+            ServerTag::Roleplay => "roleplay",
+            ServerTag::Memes => "memes",
+            ServerTag::Technology => "technology",
+            ServerTag::Social => "social",
+            ServerTag::Creative => "creative",
+            ServerTag::Educational => "educational",
+            ServerTag::Support => "support",
+        }
+    }
+
+    pub fn all() -> &'static [ServerTag] {
+        &[
+            ServerTag::Gaming,
+            ServerTag::Anime,
+            ServerTag::Music,
+            ServerTag::Study,
+            ServerTag::Coding,
+            ServerTag::Art,
+            ServerTag::Community,
+            ServerTag::Roleplay,
+            ServerTag::Memes,
+            ServerTag::Technology,
+            ServerTag::Social,
+            ServerTag::Creative,
+            ServerTag::Educational,
+            ServerTag::Support,
+        ]
+    }
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
+#[serde(rename_all = "lowercase")]
+pub enum BotTag {
+    Utility,
+    Moderation,
+    Music,
+    Economy,
+    Fun,
+    Leveling,
+    Logging,
+    Tickets,
+    Automation,
+    Analytics,
+}
+
+impl BotTag {
+    pub fn as_str(&self) -> &str {
+        match self {
+            BotTag::Utility => "utility",
+            BotTag::Moderation => "moderation",
+            BotTag::Music => "music",
+            BotTag::Economy => "economy",
+            BotTag::Fun => "fun",
+            BotTag::Leveling => "leveling",
+            BotTag::Logging => "logging",
+            BotTag::Tickets => "tickets",
+            BotTag::Automation => "automation",
+            BotTag::Analytics => "analytics",
+        }
+    }
+
+    pub fn all() -> &'static [BotTag] {
+        &[
+            BotTag::Utility,
+            BotTag::Moderation,
+            BotTag::Music,
+            BotTag::Economy,
+            BotTag::Fun,
+            BotTag::Leveling,
+            BotTag::Logging,
+            BotTag::Tickets,
+            BotTag::Automation,
+            BotTag::Analytics,
+        ]
+    }
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
 pub struct Listing {
     pub id: String,
     pub listing_type: ListingType,
@@ -92,8 +198,8 @@ pub struct BotBumpRequest {
     pub user_id: String,
 }
 
-// Predefined tags
-pub const PREDEFINED_TAGS: &[&str] = &[
+// String arrays for frontend use
+pub const SERVER_TAG_STRINGS: &[&str] = &[
     "gaming",
     "anime",
     "music",
@@ -104,9 +210,24 @@ pub const PREDEFINED_TAGS: &[&str] = &[
     "roleplay",
     "memes",
     "technology",
-    "utility-bot",
-    "moderation-bot",
-    "music-bot",
-    "economy-bot",
-    "fun-bot",
+    "social",
+    "creative",
+    "educational",
+    "support",
 ];
+
+pub const BOT_TAG_STRINGS: &[&str] = &[
+    "utility",
+    "moderation",
+    "music",
+    "economy",
+    "fun",
+    "leveling",
+    "logging",
+    "tickets",
+    "automation",
+    "analytics",
+];
+
+// Legacy: Keep for backwards compatibility
+pub const PREDEFINED_TAGS: &[&str] = SERVER_TAG_STRINGS;
