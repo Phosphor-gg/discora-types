@@ -1,3 +1,4 @@
+use std::fmt::Display;
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
@@ -5,6 +6,15 @@ use serde::{Deserialize, Serialize};
 pub enum ListingType {
     Server,
     Bot,
+}
+
+impl Display for ListingType {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            ListingType::Server => write!(f, "server"),
+            ListingType::Bot => write!(f, "bot"),
+        }
+    }
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
@@ -135,20 +145,25 @@ pub struct CreateListingRequest {
     pub listing_type: ListingType,
     pub discord_id: String,
     pub description: String,
-    pub tags: Vec<Tag>,
+    pub tags: Tags,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct UpdateListingRequest {
     pub name: Option<String>,
     pub description: Option<String>,
-    pub tags: Option<Vec<Tag>>,
+    pub tags: Option<Tags>,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct Tags {
+    pub tags: Vec<Tag>
 }
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct ListingsQuery {
     pub listing_type: Option<ListingType>,
-    pub tags: Option<Vec<Tag>>,
+    pub tags: Option<Tags>,
     pub search: Option<String>,
     pub page: Option<u64>,
     pub per_page: Option<u64>,
