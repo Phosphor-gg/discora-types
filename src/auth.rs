@@ -1,17 +1,6 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct User {
-    pub id: String,
-    pub discord_id: String,
-    pub email: String,
-    pub username: String,
-    pub global_name: Option<String>,
-    pub avatar: Option<String>,
-    pub created_at: String,
-}
-
-#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Claims {
     pub sub: String, // user_id
     pub username: Option<String>,
@@ -23,7 +12,7 @@ pub struct Claims {
 #[derive(Debug, Serialize, Deserialize)]
 pub struct AuthResponse {
     pub token: String,
-    pub user: User,
+    pub user: DiscordUser,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
