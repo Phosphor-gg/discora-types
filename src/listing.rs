@@ -143,6 +143,7 @@ pub struct Listing {
 #[derive(Debug, Serialize, Deserialize)]
 pub struct CreateListingRequest {
     pub listing_type: ListingType,
+    pub guild_id: String,
     pub description: String,
     pub tags: Tags,
 }
