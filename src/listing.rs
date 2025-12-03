@@ -176,8 +176,6 @@ pub struct DiscordServer {
     pub id: String,
     pub name: String,
     pub invite_url: String,
-    pub owner_id: String,
-    pub owner_username: String,
     pub icon: Option<String>,
 }
 
