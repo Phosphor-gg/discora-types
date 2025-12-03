@@ -179,6 +179,7 @@ pub struct BumpResponse {
 pub struct DiscordServer {
     pub id: String,
     pub name: String,
+    pub invite_url: String,
     pub icon: Option<String>,
 }
 
