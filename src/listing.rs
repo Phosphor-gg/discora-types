@@ -141,18 +141,10 @@ pub struct Listing {
 }
 
 #[derive(Debug, Serialize, Deserialize)]
-pub struct CreateListingRequest {
+pub struct UpdateListingRequest {
     pub listing_type: ListingType,
-    pub guild_id: String,
     pub description: String,
     pub tags: Tags,
-}
-
-#[derive(Debug, Serialize, Deserialize)]
-pub struct UpdateListingRequest {
-    pub name: Option<String>,
-    pub description: Option<String>,
-    pub tags: Option<Tags>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
