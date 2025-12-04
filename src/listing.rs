@@ -188,8 +188,7 @@ pub struct DiscordServer {
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct GetServersRequest {
-    pub user_id: String,
-    pub guild_ids: Vec<String>,
+    pub guild_ids: Vec<String>
 }
 
 #[derive(Debug, Serialize, Deserialize)]
