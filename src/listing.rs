@@ -131,7 +131,7 @@ impl BotTag {
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
 pub struct Listing {
-    pub discord_server: DiscordServer,
+    pub discord_listing: DiscordListing,
     pub listing_type: ListingType,
     pub description: String,
     pub tags: Vec<Tag>,
@@ -179,7 +179,7 @@ pub struct BumpResponse {
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone, PartialEq)]
-pub struct DiscordServer {
+pub struct DiscordListing {
     pub id: String,
     pub name: String,
     pub invite_url: String,
@@ -194,7 +194,7 @@ pub struct GetServersRequest {
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct GetServersResponse {
-    pub servers: Vec<DiscordServer>,
+    pub servers: Vec<DiscordListing>,
 }
 
 #[derive(Debug, Serialize, Deserialize)]
