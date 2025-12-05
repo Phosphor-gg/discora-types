@@ -214,3 +214,12 @@ pub struct AuthorizeUserRequest {
 pub struct AuthorizeUserResponse {
     pub authorized_user_ids: Vec<String>,
 }
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+pub struct DiscordServerResponse {
+    pub id: String,
+    pub name: String,
+    pub icon: Option<String>,
+    pub owner: bool,
+    pub permissions: String,
+}
