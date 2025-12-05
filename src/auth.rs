@@ -32,3 +32,17 @@ pub struct DiscordTokenResponse {
     pub refresh_token: String,
     pub scope: String,
 }
+
+#[derive(Deserialize)]
+pub struct CallbackQuery {
+    pub code: String,
+}
+
+#[derive(Debug, Serialize)]
+pub struct TokenRequest<'a> {
+    pub client_id: &'a str,
+    pub client_secret: &'a str,
+    pub grant_type: &'a str,
+    pub code: &'a str,
+    pub redirect_uri: &'a str,
+}
