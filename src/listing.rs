@@ -223,3 +223,9 @@ pub struct DiscordServerResponse {
     pub owner: bool,
     pub permissions: String,
 }
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct CanCreateResponse {
+    pub can_create: bool,
+    pub message: Option<String>,
+}
