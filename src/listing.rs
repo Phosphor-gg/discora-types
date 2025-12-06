@@ -155,7 +155,6 @@ pub struct Tags {
 #[derive(Debug, Serialize, Deserialize)]
 pub struct ListingsQuery {
     pub listing_type: Option<ListingType>,
-    pub tags: Option<Tags>,
     pub search: Option<String>,
     pub page: Option<u64>,
     pub per_page: Option<u64>,
