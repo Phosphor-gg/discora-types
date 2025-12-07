@@ -1,4 +1,5 @@
 use std::fmt::Display;
+use chrono::NaiveDateTime;
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
@@ -135,7 +136,7 @@ pub struct Listing {
     pub listing_type: ListingType,
     pub description: String,
     pub tags: Vec<Tag>,
-    pub last_bumped_at: Option<String>,
+    pub last_bumped_at: Option<NaiveDateTime>,
     pub created_at: String,
     pub updated_at: String,
 }
