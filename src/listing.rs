@@ -229,3 +229,9 @@ pub struct CanCreateResponse {
     pub can_create: bool,
     pub message: Option<String>,
 }
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct BotAuthorizationStatus {
+    pub authorized: bool,
+    pub listing_exists: bool,
+}
