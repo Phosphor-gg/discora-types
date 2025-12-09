@@ -20,7 +20,6 @@ pub struct DiscordUser {
     pub id: String,
     pub username: String,
     pub global_name: Option<String>,
-    pub email: Option<String>,
     pub avatar: Option<String>,
 }
 
