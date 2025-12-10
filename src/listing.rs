@@ -228,3 +228,9 @@ pub struct BotAuthorizationStatus {
     pub authorized: bool,
     pub listing_exists: bool,
 }
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct QrVerificationResponse {
+    pub success: bool,
+    pub message: String,
+}
