@@ -204,13 +204,6 @@ pub struct BotBumpRequest {
 }
 
 #[derive(Debug, Serialize, Deserialize)]
-pub struct AuthorizeUserRequest {
-    pub listing_id: String,
-    pub authorized: bool,
-    pub user_id: String,
-}
-
-#[derive(Debug, Serialize, Deserialize)]
 pub struct AuthorizeUserResponse {
     pub authorized_user_ids: Vec<String>,
 }
