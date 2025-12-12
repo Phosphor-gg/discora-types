@@ -50,3 +50,8 @@ pub struct TokenRequest<'a> {
 pub struct AdminStatusResponse {
     pub is_admin: bool,
 }
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct AdminDeleteQuery {
+    pub listing_type: crate::ListingType,
+}
