@@ -45,3 +45,8 @@ pub struct TokenRequest<'a> {
     pub code: &'a str,
     pub redirect_uri: &'a str,
 }
+
+#[derive(Debug, Serialize, Deserialize)]
+pub struct AdminStatusResponse {
+    pub is_admin: bool,
+}
